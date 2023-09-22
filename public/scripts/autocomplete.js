@@ -392,6 +392,7 @@ let cite = ""
         ajax.open("GET", "/autocomplete?sourse=" + cite + "&q=" + val, true);
         ajax.onload = function () {
           var list = JSON.parse(ajax.responseText);
+          console.log(list)
           a.list = list;
           a.evaluate();
           a._events.input.keydown(evt);
