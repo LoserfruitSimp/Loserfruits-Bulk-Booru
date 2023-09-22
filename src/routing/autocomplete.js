@@ -25,6 +25,7 @@ fileRouter.get("/", async function (req, res) {
 
       let data = [];
       for (let i = 0; i < 10; i++) {
+        console.log(response.data[i])
         data.push({
           label:
             response.data[i].label + " (" + response.data[i].post_count + ")",
@@ -62,11 +63,21 @@ fileRouter.get("/", async function (req, res) {
     }
   }
   
-  const filtResponce = autoResponce.filter(function(element) {
-  return autoResponce.indexOf(element) === oldArray.lastIndexOf(element);
-});
-  
-  res.json(filtResponce)
+  const seenValues = {}; // Use an object to track seen values
+  const result = [];
+
+  for (const item of autoResponce) {
+    const indexValue = item.index;
+
+    // Check if the indexValue has been seen before
+    if (!seenValues[indexValue]) {
+      // If not seen, add it to the result array and mark it as seen
+      result.push(item);
+      seenValues[indexValue] = true;
+    }
+  }
+  console.log(result)
+  res.json(result)
 });
 
 module.exports = fileRouter;
