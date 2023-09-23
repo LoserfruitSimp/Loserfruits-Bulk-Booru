@@ -20,15 +20,16 @@ var tagData = [];
 async function webResponces() {
   for (let i = 0; i < urls.length; i++) {
     async function getAll(index) {
+      console.log(`Getting data from ${urls[i]}`)
       const data = await getData(urls[i], tagsQ, index);
       tagData = tagData.concat(data);
       if (data.length === 100) {
-        console.log(index);
         await getAll(index + 100);
       }
     }
     await getAll(0);
   }
+  
   console.log(tagData);
   for (var i = 0; i < tagData.length; i++) {
     const figure = document.createElement("figure");

@@ -1,4 +1,4 @@
-html {
+.rainbowfuness {
   background: linear-gradient(
     124deg,
     #ff240060,
@@ -11,11 +11,18 @@ html {
     #dd00f360,
     #dd00f360
   );
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
   background-size: 1800% 1800%;
   -webkit-animation: rainbow 30s ease infinite;
   -z-animation: rainbow 30s ease infinite;
   -o-animation: rainbow 30s ease infinite;
   animation: rainbow 30s ease infinite;
+  position: fixed;
+  z-index: -1;
 }
 
 @-webkit-keyframes rainbow {
@@ -84,7 +91,7 @@ body {
 }
 
 p {
-      font-weight: bold;
+  font-weight: bold;
 }
 
 img {
