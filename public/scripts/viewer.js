@@ -12,7 +12,11 @@ const urls = [
 var gallery = document.getElementsByClassName("gallery")[0];
 
 function convertURL(url) {
-  return `https://${hostURL}/files?url=${url}`;
+  if (settings.proxy === "On") {
+    return `https://${hostURL}/files?url=${url}`;
+  } else {
+    return url;
+  }
 }
 
 var tagData = [];
@@ -20,9 +24,15 @@ var tagData = [];
 async function webResponces() {
   for (let i = 0; i < urls.length; i++) {
     async function getAll(index) {
-      console.log(`Getting data from ${urls[i]} ... Run number ${Math.floor(index/100) + 1}`)
-      console.log(`Total Items so far: ${tagData.length}`)
-      console.log(`-------------------------------------------------------------------------`)
+      console.log(
+        `Getting data from ${urls[i]} ... Run number ${
+          Math.floor(index / 100) + 1
+        }`
+      );
+      console.log(`Total Items so far: ${tagData.length}`);
+      console.log(
+        `-------------------------------------------------------------------------`
+      );
       const data = await getData(urls[i], tagsQ, index);
       tagData = tagData.concat(data);
       if (data.length === 100) {
@@ -31,8 +41,8 @@ async function webResponces() {
     }
     await getAll(0);
   }
- 
-  console.log(`Booru Data:`)
+
+  console.log(`Booru Data:`);
   console.log(tagData);
   for (var i = 0; i < tagData.length; i++) {
     const figure = document.createElement("figure");
@@ -48,7 +58,7 @@ async function webResponces() {
     img.src = convertURL(tagData[i].preview_url);
     img.classList.add("galleryItem");
     img.onclick = function () {
-      window.open(convertURL(tagData[img.id].file_url), '_blank');
+      window.open(convertURL(tagData[img.id].file_url), "_blank");
     };
     img.id = i;
 

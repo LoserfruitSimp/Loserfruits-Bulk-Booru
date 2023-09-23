@@ -215,6 +215,7 @@ fieldset {
   border: none;
   position: absolute;
   left: 1%;
+  bottom: 2%;
 }
 fieldset p {
   display: table-row;

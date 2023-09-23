@@ -3,10 +3,9 @@ const spoofUrl = "https://twitter.com"
 const spoofKeycode = 45 // NumPad Insert/0
 const toggleSpoofKeycode = 46 // NumPad Del/.
 
-let settings = {
-  sourse: "rule34",
-  quality: "Sample",
-  spoofToggle: true
+var settings = {
+  spoofToggle: true,
+  proxy: "On"
 }
 
 const hostURL = window.location.host
@@ -17,13 +16,8 @@ if (localStorage.getItem("settings") === null) {
   settings = getSettings();
 }
 
-function setSourse(sourse) {
-  settings.sourse = sourse;
-  setSettings();
-}
-
-function setQuality(quality) {
-  settings.quality = quality;
+function setProxy(bool) {
+  settings.proxy = bool;
   setSettings();
 }
 
