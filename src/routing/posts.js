@@ -48,9 +48,11 @@ postRouter.get("/", async function (req, res) {
         });
 
       parseString(api.data, function (err, result) {
-        for (let i = 0; i < result.posts.post.length; i++)
-          result.posts.post[i] = result.posts.post[i].$;
-        data = result.posts.post;
+        if (result.posts.post) {
+          for (let i = 0; i < result.posts.post.length; i++)
+            result.posts.post[i] = result.posts.post[i].$;
+          data = result.posts.post;
+        }
       });
     } else {
       // JSON
@@ -66,7 +68,6 @@ postRouter.get("/", async function (req, res) {
       );
 
       data = api.data;
-      console.log(data);
     }
 
     res.json(data);

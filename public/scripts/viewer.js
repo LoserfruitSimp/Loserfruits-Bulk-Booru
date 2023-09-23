@@ -61,10 +61,10 @@ async function getData(url, tags, PID) {
 
   const data = await response.json();
   console.log(data)
-  if (typeof data === 'undefined' || data.error) {
+  if ((Object.isObject(data)   || data.error) {
     return []
   }
-  
+  console.log(url)
   if (Array.isArray(data)) {
     return data;
   } else {
