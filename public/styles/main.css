@@ -64,8 +64,6 @@ img {
 }
 
 .gallery {
-  z-index: 2;
-  background: rgba(105, 105, 105, 0.75);
   position: absolute;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
