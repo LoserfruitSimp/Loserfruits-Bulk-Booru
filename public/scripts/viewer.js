@@ -20,7 +20,9 @@ var tagData = [];
 async function webResponces() {
   for (let i = 0; i < urls.length; i++) {
     async function getAll(index) {
-      console.log(`Getting data from ${urls[i]}`)
+      console.log(`Getting data from ${urls[i]} ... Run number ${Math.floor(index/100) + 1}`)
+      console.log(`Total Items so far: ${tagData.length}`)
+      console.log(`-------------------------------------------------------------------------`)
       const data = await getData(urls[i], tagsQ, index);
       tagData = tagData.concat(data);
       if (data.length === 100) {
@@ -29,7 +31,8 @@ async function webResponces() {
     }
     await getAll(0);
   }
-  
+ 
+  console.log(`Booru Data:`)
   console.log(tagData);
   for (var i = 0; i < tagData.length; i++) {
     const figure = document.createElement("figure");
@@ -44,8 +47,9 @@ async function webResponces() {
 
     img.src = convertURL(tagData[i].preview_url);
     img.classList.add("galleryItem");
+    img.id = tagData[i].file_url
     img.onclick = function () {
-      click(img);
+      window.open(convertURL(img.id), '_blank');
     };
     img.id = i;
 
