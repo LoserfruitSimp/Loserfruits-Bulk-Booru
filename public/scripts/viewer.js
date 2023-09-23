@@ -47,9 +47,8 @@ async function webResponces() {
 
     img.src = convertURL(tagData[i].preview_url);
     img.classList.add("galleryItem");
-    img.id = tagData[i].file_url
     img.onclick = function () {
-      window.open(convertURL(img.id), '_blank');
+      window.open(convertURL(tagData[img.id].file_url), '_blank');
     };
     img.id = i;
 
