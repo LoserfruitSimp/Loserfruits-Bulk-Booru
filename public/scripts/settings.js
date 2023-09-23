@@ -5,7 +5,7 @@ const toggleSpoofKeycode = 46 // NumPad Del/.
 
 var settings = {
   spoofToggle: true,
-  proxy: "On"
+  proxy: "Off"
 }
 
 const hostURL = window.location.host
