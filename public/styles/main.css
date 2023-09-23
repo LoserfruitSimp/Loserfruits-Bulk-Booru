@@ -1,11 +1,90 @@
+html {
+  background: linear-gradient(
+    124deg,
+    #ff240060,
+    #e81d1d60,
+    #e8b71d60,
+    #e3e81d60,
+    #1de84060,
+    #1ddde860,
+    #2b1de860,
+    #dd00f360,
+    #dd00f360
+  );
+  background-size: 1800% 1800%;
+  -webkit-animation: rainbow 30s ease infinite;
+  -z-animation: rainbow 30s ease infinite;
+  -o-animation: rainbow 30s ease infinite;
+  animation: rainbow 30s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
+}
+
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
+}
+
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1px;
-  background-color: #181818;
-  color: white;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+      font-weight: bold;
 }
 
 img {
