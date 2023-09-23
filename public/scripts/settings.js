@@ -4,7 +4,7 @@ const spoofKeycode = 45 // NumPad Insert/0
 const toggleSpoofKeycode = 46 // NumPad Del/.
 
 var settings = {
-  spoofToggle: true,
+  spoofToggle: false,
   proxy: "Off"
 }
 

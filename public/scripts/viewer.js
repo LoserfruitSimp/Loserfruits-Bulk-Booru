@@ -52,7 +52,7 @@ async function webResponces() {
       tagData[i].file_url.endsWith(".webm") ||
       tagData[i].file_url.endsWith(".mp4")
     ) {
-      img.style = "border: solid red; border-width: thin;";
+      img.style = "border: solid red; border-width: medium;";
     }
 
     img.src = convertURL(tagData[i].preview_url);
