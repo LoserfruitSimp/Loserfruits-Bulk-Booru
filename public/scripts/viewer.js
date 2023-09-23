@@ -23,12 +23,13 @@ async function webResponces() {
       const data = await getData(urls[i], tagsQ, index);
       tagData = tagData.concat(data);
       if (data.length === 100) {
+        console.log(index)
         await getAll(index + 100);
       }
     }
     await getAll(0);
   }
-
+  console.log(tagData)
   for (var i = 0; i < tagData.length; i++) {
     const figure = document.createElement("figure");
     const img = document.createElement("img");
@@ -59,6 +60,11 @@ async function getData(url, tags, PID) {
   );
 
   const data = await response.json();
+  console.log(data)
+  if (typeof data === 'undefined' || data.error) {
+    return []
+  }
+  
   if (Array.isArray(data)) {
     return data;
   } else {
